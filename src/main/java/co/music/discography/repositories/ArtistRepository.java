@@ -2,15 +2,19 @@ package co.music.discography.repositories;
 
 import co.music.discography.model.Artist;
 import co.music.discography.model.Track;
+import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class ArtistRepository {
 
     private List<Artist> artists = new ArrayList<>();
     private int count = 0;
 
+    @PostConstruct
     public void init(){
         Artist artist = new Artist();
         artist.setName("Judeline");

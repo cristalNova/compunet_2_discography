@@ -28,7 +28,7 @@ public class CreateArtistServlet extends HttpServlet {
     public void init() throws ServletException {
         ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
         gson = new Gson();
-        artistService = context.getBean("artistService",ArtistService.class);
+        artistService = context.getBean(ArtistService.class);
         artistView = new CreateArtistView();
 
     }

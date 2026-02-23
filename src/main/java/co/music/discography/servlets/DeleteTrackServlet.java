@@ -1,5 +1,6 @@
 package co.music.discography.servlets;
 
+import co.music.discography.config.AppConfiguration;
 import co.music.discography.services.TrackService;
 import co.music.discography.views.DeleteTrackView;
 import jakarta.servlet.ServletException;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import java.io.IOException;
@@ -21,7 +23,7 @@ public class DeleteTrackServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-        trackService = context.getBean("trackService",TrackService.class);
+        trackService = context.getBean(TrackService.class);
         deleteTrackView = new DeleteTrackView();
     }
 

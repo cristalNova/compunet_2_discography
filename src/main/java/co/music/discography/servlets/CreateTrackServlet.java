@@ -1,5 +1,6 @@
 package co.music.discography.servlets;
 
+import co.music.discography.config.AppConfiguration;
 import co.music.discography.services.ArtistService;
 import co.music.discography.services.TrackService;
 import co.music.discography.views.CreateTrackView;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import java.io.IOException;
@@ -25,8 +27,8 @@ public class CreateTrackServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-        artistService = context.getBean("artistService",ArtistService.class);
-        trackService = context.getBean("trackService",TrackService.class);
+        artistService = context.getBean(ArtistService.class);
+        trackService = context.getBean(TrackService.class);
         createTrackView = new CreateTrackView();
     }
 
