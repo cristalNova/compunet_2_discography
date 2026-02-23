@@ -3,23 +3,18 @@ package co.music.discography.services;
 import co.music.discography.model.Artist;
 import co.music.discography.model.Track;
 import co.music.discography.repositories.TrackRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
 public class TrackService {
 
     private TrackRepository repo;
     private ArtistService artistService;
 
-    @Autowired
     public void setRepo(TrackRepository repo) {
         this.repo = repo;
     }
-    @Autowired
     public void setArtistService(ArtistService artistService) {
         this.artistService = artistService;
     }

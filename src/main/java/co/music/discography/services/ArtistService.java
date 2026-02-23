@@ -3,20 +3,15 @@ package co.music.discography.services;
 import co.music.discography.model.Artist;
 import co.music.discography.model.Track;
 import co.music.discography.repositories.ArtistRepository;
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public class ArtistService {
 
 
     private ArtistRepository repo;
 
-    @Autowired
     public void setArtistRepository(ArtistRepository repo) {
         this.repo = repo;
     }

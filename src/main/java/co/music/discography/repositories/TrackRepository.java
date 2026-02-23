@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+
 public class TrackRepository {
     private List<Track> tracks = new ArrayList<>();
     private int count=0;
