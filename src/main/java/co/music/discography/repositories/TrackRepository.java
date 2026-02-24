@@ -37,4 +37,12 @@ public class TrackRepository {
             }
         }
     }
+
+    public void deleteArtistFromTrack(Track track,int id) {
+        for (Track track2 : tracks) {
+            if (track2.getId() == track.getId()) {
+                track2.deleteArtist(id);
+            }
+        }
+    }
 }

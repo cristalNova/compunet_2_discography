@@ -45,6 +45,14 @@ public class Artist {
     public void addTrack(Track track) {
         this.tracks.add(track);
     }
+    public void deleteTrack(Track track) {
+        for (int i = 0; i < tracks.size(); i++) {
+            if (tracks.get(i).getId() == track.getId()) {
+                tracks.remove(i);
+                break;
+            }
+        }
+    }
 
 }
 

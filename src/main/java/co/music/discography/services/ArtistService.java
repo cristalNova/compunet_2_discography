@@ -15,11 +15,14 @@ public class ArtistService {
 
 
     private ArtistRepository repo;
+    private TrackService trackService;
 
     @Autowired
     public void setArtistRepository(ArtistRepository repo) {
         this.repo = repo;
     }
+    @Autowired
+    public void setTrackService(TrackService trackService) {this.trackService = trackService;}
     public List<Artist> getArtists() {
         return repo.getArtists();
     }
@@ -36,11 +39,19 @@ public class ArtistService {
         repo.add(artist);
     }
     public void deleteArtist(int id) {
+        Artist artist = repo.getArtistById(id);
+        List<Track> tracks = artist.getTracks();
+        trackService.deleteArtistFromTrack(id, tracks);
         repo.delete(id);
     }
     public void addTrackToArtist(List<Integer> artists, Track track) {
         for (int i = 0; i < artists.size(); i++) {
             repo.setTrackToArtist(artists.get(i), track);
+        }
+    }
+    public void deleteTrackFromArtist(List<Artist> artists, Track track) {
+        for (int i = 0; i < artists.size(); i++) {
+            repo.deleteTrackFromArtist(artists.get(i).getId(), track);
         }
     }
 

@@ -83,5 +83,7 @@ public class CreateTrackServlet extends HttpServlet {
 
         trackService.addTrack(title,genre,duration,album,artistList);
         response.sendRedirect(request.getContextPath() + "/listTracks");
+        //response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
+        //response.setHeader("Location", request.getContextPath() + "/listTracks");
     }
 }

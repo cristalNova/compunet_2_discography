@@ -58,4 +58,12 @@ public class Track {
     public void setArtists(List<Artist> artists) {
         this.artists = artists;
     }
+    public void deleteArtist(int id) {
+        for (int i = 0; i < artists.size(); i++) {
+            if (artists.get(i).getId() == id) {
+                artists.remove(i);
+                break;
+            }
+        }
+    }
 }

@@ -51,6 +51,16 @@ public class TrackService {
     }
 
     public void deleteTrack(int id) {
+        Track track = repo.getTrack(id);
+        List<Artist> artists = track.getArtists();
+        artistService.deleteTrackFromArtist(artists, track);
         repo.delete(id);
+
+    }
+
+    public void deleteArtistFromTrack(int id,List<Track> tracks) {
+        for (Track track : tracks) {
+            repo.deleteArtistFromTrack(track, id);
+        }
     }
 }
